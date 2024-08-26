@@ -1,4 +1,4 @@
-$global:composeProjectName = ""
+$global:composeProjectName = "takeshita-work_web-server-php"
 
 
 if (-not $global:composeProjectName) {

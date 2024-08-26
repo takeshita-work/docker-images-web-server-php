@@ -1,3 +1,133 @@
 services:
-  container-name_software-version:
-    image: repository:software-version
+  ##############################
+  # apache-php
+  ##############################
+  # apache-php5.3:
+  #   image: takeshita.work/web-server-php:apache-php5.3
+  #   ports:
+  #     - 10080:80
+  #     - 10443:443
+  #   volumes:
+  #     - ./app:/var/www
+
+  apache-php5.5:
+    image: takeshita.work/web-server-php:apache-php5.5
+    ports:
+      - 11080:80
+      - 11443:443
+    volumes:
+      - ./app:/var/www
+
+  apache-php5.6:
+    image: takeshita.work/web-server-php:apache-php5.6
+    ports:
+      - 12080:80
+      - 12443:443
+    volumes:
+      - ./app:/var/www
+
+  apache-php7.0:
+    image: takeshita.work/web-server-php:apache-php7.0
+    ports:
+      - 13080:80
+      - 13443:443
+    volumes:
+      - ./app:/var/www
+
+  apache-php7.1:
+    image: takeshita.work/web-server-php:apache-php7.1
+    ports:
+      - 14080:80
+      - 14443:443
+    volumes:
+      - ./app:/var/www
+
+  apache-php7.2:
+    image: takeshita.work/web-server-php:apache-php7.2
+    ports:
+      - 15080:80
+      - 15443:443
+    volumes:
+      - ./app:/var/www
+
+  apache-php7.3:
+    image: takeshita.work/web-server-php:apache-php7.3
+    ports:
+      - 16080:80
+      - 16443:443
+    volumes:
+      - ./app:/var/www
+
+  apache-php7.4:
+    image: takeshita.work/web-server-php:apache-php7.4
+    ports:
+      - 17080:80
+      - 17443:443
+    volumes:
+      - ./app:/var/www
+
+  apache-php8.0:
+    image: takeshita.work/web-server-php:apache-php8.0
+    ports:
+      - 18080:80
+      - 18443:443
+    volumes:
+      - ./app:/var/www
+
+  apache-php8.1:
+    image: takeshita.work/web-server-php:apache-php8.1
+    ports:
+      - 19080:80
+      - 19443:443
+    volumes:
+      - ./app:/var/www
+
+  apache-php8.2:
+    image: takeshita.work/web-server-php:apache-php8.2
+    ports:
+      - 20080:80
+      - 20443:443
+    volumes:
+      - ./app:/var/www
+
+  apache-php8.3:
+    image: takeshita.work/web-server-php:apache-php8.3
+    ports:
+      - 21080:80
+      - 21443:443
+    volumes:
+      - ./app:/var/www
+
+  ##############################
+  # mysql
+  ##############################
+  mysql5.7:
+    image: takeshita.work/web-server-php:mysql5.7
+
+  mysql8.0:
+    image: takeshita.work/web-server-php:mysql8.0
+
+  ##############################
+  # phpMyAdmin
+  ##############################
+  phpmyadmin-mysql5.7:
+    image: takeshita.work/web-server-php:phpmyadmin
+    environment:
+      - PMA_HOST=mysql5.7
+    ports:
+      - 30080:80
+
+  phpmyadmin-mysql8.7:
+    image: takeshita.work/web-server-php:phpmyadmin
+    environment:
+      - PMA_HOST=mysql8.0
+    ports:
+      - 31080:80
+
+  ##############################
+  # mailcatcher_latest
+  ##############################
+  smtp:
+    image: takeshita.work/web-server-php:mailcatcher
+    ports:
+      - 1080:1080

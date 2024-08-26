@@ -1,0 +1,12 @@
+#. $PSScriptRoot/apache-php5.3/build.ps1
+. $PSScriptRoot/apache-php5.5/build.ps1
+. $PSScriptRoot/apache-php5.6/build.ps1
+. $PSScriptRoot/apache-php7.0/build.ps1
+. $PSScriptRoot/apache-php7.1/build.ps1
+. $PSScriptRoot/apache-php7.2/build.ps1
+. $PSScriptRoot/apache-php7.3/build.ps1
+. $PSScriptRoot/apache-php7.4/build.ps1
+. $PSScriptRoot/apache-php8.0/build.ps1
+. $PSScriptRoot/apache-php8.1/build.ps1
+. $PSScriptRoot/apache-php8.2/build.ps1
+. $PSScriptRoot/apache-php8.3/build.ps1

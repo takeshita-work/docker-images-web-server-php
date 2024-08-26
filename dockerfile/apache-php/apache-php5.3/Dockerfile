@@ -1,0 +1,69 @@
+FROM php:5.3-apache
+
+# RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 04EE7237B7D453EC
+
+# RUN echo "deb http://archive.debian.org/debian/ stretch main" > /etc/apt/sources.list && \
+#     echo "deb-src http://archive.debian.org/debian/ stretch main" >> /etc/apt/sources.list && \
+#     echo "Acquire::Check-Valid-Until false;" > /etc/apt/apt.conf.d/10-nocheckvalid
+
+# RUN \
+#   apt-get -qq update && \
+#   # 必要なライブラリの導入
+#   apt-get -qq install -y --no-install-recommends \
+#     libfreetype6-dev \
+#     libjpeg62-turbo-dev \
+#     libmcrypt-dev \
+#     libmariadbclient-dev \
+#     zlib1g-dev \
+#     libzip-dev\
+#     libssl-dev \
+#     libonig-dev \
+#     openssl \
+#     #自己署名証明書発行のために導入
+#     ssl-cert \
+#     #メール送信の設定
+#     msmtp mailutils \
+#     && \
+#   # # 拡張をインストール
+#   # docker-php-ext-install \
+#   #   pdo_mysql \
+#   #   mysql \
+#   #   mysqli \
+#   #   mbstring \
+#   #   gd \
+#   #   zip \
+#   #   mcrypt \
+#   #   && \
+#   # htaccess を有効に
+#   a2enmod rewrite && \
+#   # ssl を有効に
+#   a2enmod ssl  && \
+#   # ssiを 有効に
+#   a2enmod include && \
+#   # default-ssl の設定を有効に
+#   a2ensite default-ssl
+
+# # ioncube の設置
+# RUN mkdir /var/ioncube \
+#     && curl -sL https://downloads.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz \
+#     | tar zx -C /var/ioncube  --strip-components 1
+
+# # php.ini の設置
+# COPY dockerfile/apache-php/etc/php.ini /usr/local/etc/php/php.ini
+# COPY dockerfile/apache-php/apache-php5.3/ioncube.ini /usr/local/etc/php/conf.d
+
+# # apache の設定ファイルの設置
+# COPY dockerfile/apache-php/etc/apache2/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
+# COPY dockerfile/apache-php/etc/apache2/000-default.conf /etc/apache2/sites-available/000-default.conf
+
+
+# # apache の起動にひつようなディレクトリの作成
+# RUN mkdir -p /var/lock/apache2 /var/run/apache2 && \
+#     chown www-data:www-data /var/lock/apache2 /var/run/apache2
+
+# # Apacheの環境変数を設定
+# RUN echo 'export APACHE_RUN_DIR=/var/run/apache2' >> /etc/apache2/envvars && \
+#     echo 'export APACHE_LOG_DIR=/var/log/apache2' >> /etc/apache2/envvars
+
+# # メール送信の設定
+# COPY dockerfile/apache-php/etc/msmtprc /etc/msmtprc
