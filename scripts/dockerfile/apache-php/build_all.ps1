@@ -10,3 +10,5 @@
 . $PSScriptRoot/apache-php8.1/build.ps1
 . $PSScriptRoot/apache-php8.2/build.ps1
 . $PSScriptRoot/apache-php8.3/build.ps1
+. $PSScriptRoot/apache-php8.4/build.ps1
+. $PSScriptRoot/apache-php8.5/build.ps1
